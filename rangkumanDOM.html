@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Penjelasan DOM JavaScript</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffe6f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        h2 {
+            font-family: cursive;
+            color:#e60073;
+        }
+
+        header {
+            background-color: #ff66a3;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .container {
+            padding: 20px;
+        }
+
+        .card {
+            background-color: #fff0f5;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(255, 105, 180, 0.3);
+            margin-bottom: 20px;
+        }
+
+        button {
+            background-color: #ff3399;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #e60073;
+        }
+
+        .highlight {
+            color: #ff0066;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Belajar DOM sama Hana 😎😎😎</h1>
+</header>
+
+<div class="container">
+
+    <div class="card">
+        <h2>Apa itu DOM?</h2>
+        <p id="penjelasan">
+            DOM (Document Object Model) adalah representasi struktur dokumen HTML
+            yang memungkinkan JavaScript untuk mengakses dan memanipulasi elemen di dalamnya.
+        </p>
+        <button onclick="ubahTeks()">pencet button ini</button>
+    </div>
+
+    <div class="card">
+        <h2>Contoh Manipulasi DOM</h2>
+        <p id="contoh">Klik tombol di bawah untuk mengubah warna teks ini.</p>
+        <button onclick="ubahWarna()">ganti warna</button>
+    </div>
+
+    <div class="card">
+        <h2>Menambah Elemen Baru</h2>
+        <button onclick="tambahElemen()">click iniii</button>
+        <div id="hasil"></div>
+    </div>
+
+</div>
+
+<script>
+    // Mengubah isi teks menggunakan DOM
+    function ubahTeks() {
+        const elemen = document.getElementById("penjelasan");
+        elemen.innerHTML = "DOM memungkinkan JavaScript <span class='highlight'>mengubah konten, atribut, dan style</span> dari halaman web secara dinamis.";
+    }
+
+    // Mengubah warna teks
+    function ubahWarna() {
+        const teks = document.getElementById("contoh");
+        teks.style.color = "#ff1493";
+        teks.style.fontWeight = "bold";
+    }
+
+    // Menambahkan elemen baru
+    function tambahElemen() {
+        const paragrafBaru = document.createElement("p");
+        paragrafBaru.textContent = "Ini adalah paragraf baru yang ditambahkan menggunakan DOM.";
+        
+        const tempat = document.getElementById("hasil");
+        tempat.appendChild(paragrafBaru);
+    }
+</script>
+
+</body>
+</html>
